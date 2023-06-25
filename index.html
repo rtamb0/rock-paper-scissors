@@ -6,7 +6,12 @@
     </head>
     <body>
         <script>
-            
+            // A function called getComputerChoice that returns either "Rock", "Paper", or "Scissors" randomly.
+            function getComputerChoice() {
+                const choice = ["Rock", "Paper", "Scissors"]
+                return choice[Math.floor(Math.random() * choice.length)];
+            }
+            console.log(getComputerChoice())
         </script>
     </body>
 </html>
