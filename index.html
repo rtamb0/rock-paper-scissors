@@ -15,7 +15,7 @@
 
             //A function that plays a single round of the game. The function includes two parameters that indicate the player's and CPU's input. The function returns the result of the round in a string.
             function playRound(playerSelection, computerSelection = getComputerChoice()) {
-                playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+                playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
                 if (playerSelection === computerSelection) {
                     return "It's a tie!";
                 } else if (playerSelection === "Rock") {
@@ -37,9 +37,11 @@
                         return "You lose! Rock beats Scissors";
                     }
                 } else {
-                    return "Invalid word. Please type the appropriate word."
+                    return "Invalid word. Please type the appropriate word.";
                 }
             }
+            //A function called game that loops the playRound function up to five times to play a 5 round game. Each round keeps the score for each sides. The function reports a winner or loser at the end of the fifth round.
+
         </script>
     </body>
 </html>
