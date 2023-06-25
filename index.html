@@ -14,9 +14,32 @@
             console.log(getComputerChoice());
 
             //A function that plays a single round of the game. The function includes two parameters that indicate the player's and CPU's input. The function returns the result of the round in a string.
-            
-            //A constant variable assigned to the CPU's input parameter.
-            const computerSelection = getComputerChoice();
+            function playRound(playerSelection, computerSelection = getComputerChoice()) {
+                playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+                if (playerSelection === computerSelection) {
+                    return "It's a tie!";
+                } else if (playerSelection === "Rock") {
+                    if (computerSelection === "Scissors") {
+                        return "You win! Rock beats Scissors";
+                    } else {
+                        return "You lose! Paper beats Rock";
+                    }
+                } else if (playerSelection === "Paper") {
+                    if (computerSelection === "Rock") {
+                        return "You win! Paper beats Rock";
+                    } else {
+                        return "You lose! Scissors beats Paper";
+                    }
+                } else if (playerSelection === "Scissors") {
+                    if (computerSelection === "Paper") {
+                        return "You win! Scissors beats Paper";
+                    } else {
+                        return "You lose! Rock beats Scissors";
+                    }
+                } else {
+                    return "Invalid word. Please type the appropriate word."
+                }
+            }
         </script>
     </body>
 </html>
