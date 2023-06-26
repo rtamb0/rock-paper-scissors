@@ -22,6 +22,8 @@
                 switch (playerSelection) {
                     case computerSelection:
                         console.log("It's a tie!");
+                        ++player;
+                        ++computer;
                         break;
                     case "Rock":
                         if (computerSelection === "Scissors") {
@@ -52,8 +54,6 @@
                         break;
                     default:
                         console.log("Invalid word. Please type the appropriate word.");
-                        ++player;
-                        ++computer;
                 };
             }
             
