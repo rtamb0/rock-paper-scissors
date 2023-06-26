@@ -13,35 +13,57 @@
             }
             console.log(getComputerChoice());
 
-            //A function that plays a single round of the game. The function includes two parameters that indicate the player's and CPU's input. The function returns the result of the round in a string.
-            function playRound(playerSelection, computerSelection = getComputerChoice()) {
+            // A function that plays a single round of the game. The function includes two parameters that indicate the player's and CPU's input. The function returns the result of the round in a string.
+            let player;
+            let computer;
+            let playerResult;
+            let computerResult;
+
+            function playRound(playerSelection = prompt("Rock, Paper, Scissors! Which one will it be?"), computerSelection = getComputerChoice()) {
                 playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-                if (playerSelection === computerSelection) {
-                    return "It's a tie!";
-                } else if (playerSelection === "Rock") {
-                    if (computerSelection === "Scissors") {
-                        return "You win! Rock beats Scissors";
-                    } else {
-                        return "You lose! Paper beats Rock";
-                    }
-                } else if (playerSelection === "Paper") {
-                    if (computerSelection === "Rock") {
-                        return "You win! Paper beats Rock";
-                    } else {
-                        return "You lose! Scissors beats Paper";
-                    }
-                } else if (playerSelection === "Scissors") {
-                    if (computerSelection === "Paper") {
-                        return "You win! Scissors beats Paper";
-                    } else {
-                        return "You lose! Rock beats Scissors";
-                    }
-                } else {
-                    return "Invalid word. Please type the appropriate word.";
+                switch (playerSelection) {
+                    case computerSelection:
+                        return "It's a tie!";
+                        break;
+                    case "Rock":
+                        if (computerSelection === "Scissors") {
+                            return "You win! Rock beats Scissors";
+                            playerResult = player + 1;
+                        } else {
+                            return "You lose! Paper beats Rock";
+                            computerResult = computer + 1;
+                        };
+                        break;
+                    case "Paper":
+                        if (computerSelection === "Rock") {
+                                return "You win! Paper beats Rock";
+                                playerResult = player + 1;
+                            } else {
+                                return "You lose! Scissors beats Paper";
+                                computerResult = computer + 1;
+                            }
+                        break;
+                    case "Scissors":
+                        if (computerSelection === "Paper") {
+                                return "You win! Scissors beats Paper";
+                                playerResult = player + 1;
+                            } else {
+                                return "You lose! Rock beats Scissors";
+                                computerResult = computer + 1;
+                            }
+                        break;
+                    default:
+                        return "Invalid word. Please type the appropriate word.";
+                        }
+            }
+            
+            // A function called game that loops the playRound function up to five times to play a 5 round game. Each round keeps the score for each sides. The function reports a winner or loser at the end of the fifth round.
+            function game() {
+                playRound()
+                for (playRound = 0; playRound <= 5; ++playRound) {
+
                 }
             }
-            //A function called game that loops the playRound function up to five times to play a 5 round game. Each round keeps the score for each sides. The function reports a winner or loser at the end of the fifth round.
-
         </script>
     </body>
 </html>
