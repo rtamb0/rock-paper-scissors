@@ -14,8 +14,8 @@
             console.log(getComputerChoice());
 
             // A function that plays a single round of the game. The function includes two parameters that indicate the player's and CPU's input. The function returns the result of the round in a string.
-            let player;
-            let computer;
+            let player = 0;
+            let computer = 0;
 
             function playRound(playerSelection = prompt("Rock, Paper, Scissors! Which one will it be?"), computerSelection = getComputerChoice()) {
                 playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
@@ -26,28 +26,28 @@
                     case "Rock":
                         if (computerSelection === "Scissors") {
                             console.log("You win! Rock beats Scissors");
-                            return ++player;
+                            ++player;
                         } else {
                             console.log("You lose! Paper beats Rock");
-                            return ++computer;
+                            ++computer;
                         };
                         break;
                     case "Paper":
                         if (computerSelection === "Rock") {
                             console.log("You win! Paper beats Rock");
-                            return ++player;
+                            ++player;
                         } else {
                             console.log("You lose! Scissors beats Paper");
-                            return ++computer;
+                            ++computer;
                         };
                         break;
                     case "Scissors":
                         if (computerSelection === "Paper") {
                             console.log("You win! Scissors beats Paper");
-                            return ++player;
+                            ++player;
                         } else {
                             console.log("You lose! Rock beats Scissors");
-                            return ++computer;
+                            ++computer;
                         };
                         break;
                     default:
@@ -60,7 +60,7 @@
                 player = 0;
                 computer = 0;
 
-                for (i = 1; i <= 5; ++i) {
+                for (i = 1; i <= 5; i++) {
                     playRound();
                     console.log(`Player ${player} vs CPU ${computer}`);
                 };
