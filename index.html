@@ -14,8 +14,8 @@
             console.log(getComputerChoice());
 
             // A function that plays a single round of the game. The function includes two parameters that indicate the player's and CPU's input. The function returns the result of the round in a string.
-            let player = 0;
-            let computer = 0;
+            let player;
+            let computer;
 
             function playRound(playerSelection = prompt("Rock, Paper, Scissors! Which one will it be?"), computerSelection = getComputerChoice()) {
                 playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
