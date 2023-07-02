@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    background-color: burlywood;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    gap: 150px;
+    background-color: rgb(113, 202, 176);
+}
+
+header .description {
+    font-size: 25px;
+}
+
+header p {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 75px;
+}
+
+.choice-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.choice, .restart {
+    width: 300px;
+    height: 100px;
+}
