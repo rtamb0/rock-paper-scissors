@@ -18,10 +18,12 @@
             }
             
             // Variables to select/create elements
+            const script = document.querySelector('.script');
             const body = document.querySelector('.body');
             const result = document.createElement('p');
+            body.insertBefore(result, script);
             const roundEnd = document.createElement('p');
-            const script = document.querySelector('.script');
+            body.insertBefore(roundEnd, script);
 
             // Restart button that appears at the end of the game and restarts the game from the beginning
             const restart = document.createElement('button');
@@ -50,9 +52,6 @@
                 });
                 body.insertBefore(restart, result);
             };
-            body.insertBefore(result, script);
-            body.insertBefore(roundEnd, script);
-
             // Event Listeners for the buttons to play the game
             const rock = document.querySelector('#rock');
             rock.addEventListener('click', (e) => {
