@@ -27,35 +27,35 @@
                 result.textContent = '';
                 switch (playerSelection) {
                     case computerSelection:
-                        result.textContent = "It's a tie!";
                         ++player;
                         ++computer;
+                        result.textContent = "It's a tie!";
                         break;
                     case "Rock":
                         if (computerSelection === "Scissors") {
-                            result.textContent = "You win! Rock beats Scissors";
                             ++player;
+                            result.textContent = "You win! Rock beats Scissors";
                         } else {
-                            result.textContent = "You lose! Paper beats Rock";
                             ++computer;
+                            result.textContent = "You lose! Paper beats Rock";
                         };
                         break;
                     case "Paper":
                         if (computerSelection === "Rock") {
-                            result.textContent = "You win! Paper beats Rock";
                             ++player;
+                            result.textContent = "You win! Paper beats Rock";
                         } else {
-                            result.textContent = "You lose! Scissors beats Paper";
                             ++computer;
+                            result.textContent = "You lose! Scissors beats Paper";
                         };
                         break;
                     case "Scissors":
                         if (computerSelection === "Paper") {
-                            result.textContent = "You win! Scissors beats Paper";
                             ++player;
+                            result.textContent = "You win! Scissors beats Paper";
                         } else {
-                            result.textContent = "You lose! Rock beats Scissors";
                             ++computer;
+                            result.textContent = "You lose! Rock beats Scissors";
                         };
                         break;
                     default:
