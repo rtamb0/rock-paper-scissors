@@ -4,58 +4,62 @@
         <meta charset="utf-8">
         <title>Rock, Paper, Scissors!</title>
     </head>
-    <body>
+    <body class="body">
         <button class="rock">Rock</button>
         <button class="paper">Paper</button>
         <button class="scissors">Scissors</button>
-        <script>
+        <script class="script">
             // A function called getComputerChoice that returns either "Rock", "Paper", or "Scissors" randomly for the CPU.
             function getComputerChoice() {
                 const choice = ["Rock", "Paper", "Scissors"]
                 return choice[Math.floor(Math.random() * choice.length)];
             }
-            console.log(getComputerChoice());
 
             // A function that plays a single round of the game. The function includes two parameters that indicate the player's and CPU's input. The function returns the result of the round in a string.
             let player;
             let computer;
+            const body = document.querySelector('.body');
+            const result = document.createElement('p');
+            const script = document.querySelector('.script');
+            body.insertBefore(result, script);
 
             function playRound(playerSelection, computerSelection = getComputerChoice()) {
+                result.textContent = '';
                 switch (playerSelection) {
                     case computerSelection:
-                        console.log("It's a tie!");
+                        result.textContent = "It's a tie!";
                         ++player;
                         ++computer;
                         break;
                     case "Rock":
                         if (computerSelection === "Scissors") {
-                            console.log("You win! Rock beats Scissors");
+                            result.textContent = "You win! Rock beats Scissors";
                             ++player;
                         } else {
-                            console.log("You lose! Paper beats Rock");
+                            result.textContent = "You lose! Paper beats Rock";
                             ++computer;
                         };
                         break;
                     case "Paper":
                         if (computerSelection === "Rock") {
-                            console.log("You win! Paper beats Rock");
+                            result.textContent = "You win! Paper beats Rock";
                             ++player;
                         } else {
-                            console.log("You lose! Scissors beats Paper");
+                            result.textContent = "You lose! Scissors beats Paper";
                             ++computer;
                         };
                         break;
                     case "Scissors":
                         if (computerSelection === "Paper") {
-                            console.log("You win! Scissors beats Paper");
+                            result.textContent = "You win! Scissors beats Paper";
                             ++player;
                         } else {
-                            console.log("You lose! Rock beats Scissors");
+                            result.textContent = "You lose! Rock beats Scissors";
                             ++computer;
                         };
                         break;
                     default:
-                        console.log("Invalid word. Please type the appropriate word.");
+                        result.textContent = "Invalid word. Please type the appropriate word.";
                 };
             };
 
