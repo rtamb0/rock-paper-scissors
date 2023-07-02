@@ -17,6 +17,26 @@
                 return choice[Math.floor(Math.random() * choice.length)];
             }
 
+            const body = document.querySelector('.body');
+            const result = document.createElement('p');
+            const roundEnd = document.createElement('p');
+            const script = document.querySelector('.script');
+
+            const restart = document.createElement('button');
+            restart.textContent = "Restart";
+
+            const choiceWrap = document.querySelector('.choice-container');
+            function removeChoice() {
+                let choice = choiceWrap.lastElementChild;
+                while (choice) {
+                    choiceWrap.removeChild(choice);
+                    choice = choiceWrap.lastElementChild;
+                };
+                body.insertBefore(restart, result);
+            };
+            body.insertBefore(result, script);
+            body.insertBefore(roundEnd, script);
+
             // A function that plays a single round of the game. The function includes two parameters that indicate the player's and CPU's input. The function returns the result of the round in a string.
             let player = 0;
             let computer = 0;
@@ -80,20 +100,7 @@
                 };
             };
 
-            const body = document.querySelector('.body');
-            const result = document.createElement('p');
-            const roundEnd = document.createElement('p');
-            const script = document.querySelector('.script');
-            const choiceWrap = document.querySelector('.choice-container');
-            function removeChoice() {
-                let choice = choiceWrap.lastElementChild;
-                    while (choice) {
-                        choiceWrap.removeChild(choice);
-                        choice = choiceWrap.lastElementChild;
-                    };
-            };
-            body.insertBefore(result, script);
-            body.insertBefore(roundEnd, script);
+
 
             const rock = document.querySelector('#rock');
             rock.addEventListener('click', (e) => {
