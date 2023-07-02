@@ -16,52 +16,72 @@
             }
 
             // A function that plays a single round of the game. The function includes two parameters that indicate the player's and CPU's input. The function returns the result of the round in a string.
-            let player;
-            let computer;
-            const body = document.querySelector('.body');
-            const result = document.createElement('p');
-            const script = document.querySelector('.script');
-            body.insertBefore(result, script);
+            let player = 0;
+            let computer = 0;
 
-            function playRound(playerSelection, computerSelection = getComputerChoice()) {
-                result.textContent = '';
+            function playRound(playerSelection, 
+            computerSelection = getComputerChoice()) {
+                if (player === 5 || computer === 5) {
+                    player = 0;
+                    computer = 0;
+                    roundEnd.textContent = "";
+                }
                 switch (playerSelection) {
                     case computerSelection:
-                        ++player;
-                        ++computer;
                         result.textContent = "It's a tie!";
                         break;
                     case "Rock":
                         if (computerSelection === "Scissors") {
                             ++player;
-                            result.textContent = "You win! Rock beats Scissors";
+                            result.textContent = `Your Rock overpowers the CPU's Scissors!
+                            ${player} vs ${computer}`;
+                            break;
                         } else {
                             ++computer;
-                            result.textContent = "You lose! Paper beats Rock";
+                            result.textContent = `The CPU's Paper destroys your Rock... 
+                            ${player} vs ${computer}`;
+                            break;
                         };
-                        break;
                     case "Paper":
                         if (computerSelection === "Rock") {
                             ++player;
-                            result.textContent = "You win! Paper beats Rock";
+                            result.textContent = `Your Paper overpowers the CPU's Rock!
+                            ${player} vs ${computer}`;
+                            break;
                         } else {
                             ++computer;
-                            result.textContent = "You lose! Scissors beats Paper";
+                            result.textContent = `The CPU's Scissors destroys your Paper...
+                            ${player} vs ${computer}`;
+                            break;
                         };
-                        break;
                     case "Scissors":
                         if (computerSelection === "Paper") {
                             ++player;
-                            result.textContent = "You win! Scissors beats Paper";
+                            result.textContent = `Your Scissors overpowers the CPU's Paper!
+                            ${player} vs ${computer}`;
+                            break;
                         } else {
                             ++computer;
-                            result.textContent = "You lose! Rock beats Scissors";
+                            result.textContent = `The CPU's Rock destroys your Scissors...
+                            ${player} vs ${computer}`;
+                            break;
                         };
-                        break;
                     default:
                         result.textContent = "Invalid word. Please type the appropriate word.";
                 };
+                if (player === 5) {
+                    roundEnd.textContent = `You are the winner!`;
+                } else if (computer === 5) {
+                    roundEnd.textContent = `Better luck next time...`;
+                };
             };
+
+            const body = document.querySelector('.body');
+            const result = document.createElement('p');
+            const roundEnd = document.createElement('p');
+            const script = document.querySelector('.script');
+            body.insertBefore(result, script);
+            body.insertBefore(roundEnd, script);
 
             const rock = document.querySelector('.rock');
             rock.addEventListener('click', (e) => {
