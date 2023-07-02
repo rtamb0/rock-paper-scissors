@@ -73,8 +73,10 @@
                 };
                 if (player === 5) {
                     roundEnd.textContent = `You are the winner!`;
-                } else if (computer === 5) {
+                    removeChoice();
+                    } else if (computer === 5) {
                     roundEnd.textContent = `Better luck next time...`;
+                    removeChoice();
                 };
             };
 
@@ -82,29 +84,27 @@
             const result = document.createElement('p');
             const roundEnd = document.createElement('p');
             const script = document.querySelector('.script');
-            const choice = document.querySelectorAll('.choice');
+            const choiceWrap = document.querySelector('.choice-container');
+            function removeChoice() {
+                let choice = choiceWrap.lastElementChild;
+                    while (choice) {
+                        choiceWrap.removeChild(choice);
+                        choice = choiceWrap.lastElementChild;
+                    };
+            };
             body.insertBefore(result, script);
             body.insertBefore(roundEnd, script);
 
             const rock = document.querySelector('#rock');
             rock.addEventListener('click', (e) => {
-                if (player === 5 || computer === 5) {
-                    
-                };
                 playRound("Rock");
             });
             const paper = document.querySelector('#paper');
             paper.addEventListener('click', (e) => {
-                if (player === 5 || computer === 5) {
-                    
-                };
                 playRound("Paper");
             });
             const scissors = document.querySelector('#scissors');
             scissors.addEventListener('click', (e) => {
-                if (player === 5 || computer === 5) {
-                    
-                };
                 playRound("Scissors");
             });
 
