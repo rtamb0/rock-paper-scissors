@@ -40,6 +40,7 @@ function removeChoice() {
     });
     body.insertBefore(restart, result);
 };
+
 // Event Listeners for the buttons to play the game
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', (e) => {
