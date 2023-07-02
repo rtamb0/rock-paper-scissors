@@ -18,7 +18,7 @@ restart.classList.add('restart');
 restart.textContent = "Restart";
 restart.addEventListener('click', (e) => {
     restartGame()
-    body.removeChild(restart);
+    choiceWrap.removeChild(restart);
     buttonChoice.forEach((button) => {
         choiceWrap.appendChild(button)
     });
@@ -38,7 +38,7 @@ function removeChoice() {
     buttonChoice.forEach((button) => {
     choiceWrap.removeChild(button);
     });
-    body.insertBefore(restart, result);
+    choiceWrap.appendChild(restart);
 };
 
 // Event Listeners for the buttons to play the game
