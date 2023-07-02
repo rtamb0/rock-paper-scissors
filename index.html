@@ -24,8 +24,14 @@
 
             const restart = document.createElement('button');
             restart.textContent = "Restart";
+            restart.addEventListener('click', (e) => {
+                buttonChoice.forEach((button) => {
+                    choiceWrap.appendChild(button)
+                });
+            });
 
             const choiceWrap = document.querySelector('.choice-container');
+            const buttonChoice = document.querySelectorAll('.choice')
             function removeChoice() {
                 let choice = choiceWrap.lastElementChild;
                 while (choice) {
