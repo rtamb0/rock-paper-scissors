@@ -25,10 +25,19 @@
             const restart = document.createElement('button');
             restart.textContent = "Restart";
             restart.addEventListener('click', (e) => {
+                restartGame()
+                body.removeChild(restart);
                 buttonChoice.forEach((button) => {
                     choiceWrap.appendChild(button)
                 });
             });
+
+            function restartGame() {
+                player = 0;
+                computer = 0;
+                roundEnd.textContent = "";
+                result.textContent = "";
+            }
 
             const choiceWrap = document.querySelector('.choice-container');
             const buttonChoice = document.querySelectorAll('.choice')
@@ -47,11 +56,6 @@
 
             function playRound(playerSelection, 
             computerSelection = getComputerChoice()) {
-                if (player === 5 || computer === 5) {
-                    player = 0;
-                    computer = 0;
-                    roundEnd.textContent = "";
-                }
                 switch (playerSelection) {
                     case computerSelection:
                         result.textContent = "It's a tie!";
