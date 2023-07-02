@@ -5,9 +5,11 @@
         <title>Rock, Paper, Scissors!</title>
     </head>
     <body class="body">
-        <button class="rock">Rock</button>
-        <button class="paper">Paper</button>
-        <button class="scissors">Scissors</button>
+        <div class="choice-container">
+            <button id="rock" class="choice">Rock</button>
+            <button id="paper" class="choice">Paper</button>
+            <button id="scissors" class="choice">Scissors</button>
+        </div>
         <script class="script">
             // A function called getComputerChoice that returns either "Rock", "Paper", or "Scissors" randomly for the CPU.
             function getComputerChoice() {
@@ -80,19 +82,29 @@
             const result = document.createElement('p');
             const roundEnd = document.createElement('p');
             const script = document.querySelector('.script');
+            const choice = document.querySelectorAll('.choice');
             body.insertBefore(result, script);
             body.insertBefore(roundEnd, script);
 
-            const rock = document.querySelector('.rock');
+            const rock = document.querySelector('#rock');
             rock.addEventListener('click', (e) => {
+                if (player === 5 || computer === 5) {
+                    
+                };
                 playRound("Rock");
             });
-            const paper = document.querySelector('.paper');
+            const paper = document.querySelector('#paper');
             paper.addEventListener('click', (e) => {
+                if (player === 5 || computer === 5) {
+                    
+                };
                 playRound("Paper");
             });
-            const scissors = document.querySelector('.scissors');
+            const scissors = document.querySelector('#scissors');
             scissors.addEventListener('click', (e) => {
+                if (player === 5 || computer === 5) {
+                    
+                };
                 playRound("Scissors");
             });
 
