@@ -33,11 +33,9 @@
             const choiceWrap = document.querySelector('.choice-container');
             const buttonChoice = document.querySelectorAll('.choice')
             function removeChoice() {
-                let choice = choiceWrap.lastElementChild;
-                while (choice) {
-                    choiceWrap.removeChild(choice);
-                    choice = choiceWrap.lastElementChild;
-                };
+                buttonChoice.forEach((button) => {
+                choiceWrap.removeChild(button);
+                });
                 body.insertBefore(restart, result);
             };
             body.insertBefore(result, script);
