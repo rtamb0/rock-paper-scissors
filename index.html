@@ -5,6 +5,9 @@
         <title>Rock, Paper, Scissors!</title>
     </head>
     <body>
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
         <script>
             // A function called getComputerChoice that returns either "Rock", "Paper", or "Scissors" randomly for the CPU.
             function getComputerChoice() {
@@ -17,8 +20,7 @@
             let player;
             let computer;
 
-            function playRound(playerSelection = prompt("Rock, Paper, Scissors! Which one will it be?"), computerSelection = getComputerChoice()) {
-                playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+            function playRound(playerSelection, computerSelection = getComputerChoice()) {
                 switch (playerSelection) {
                     case computerSelection:
                         console.log("It's a tie!");
@@ -55,27 +57,22 @@
                     default:
                         console.log("Invalid word. Please type the appropriate word.");
                 };
-            }
-            
-            // A function called game that loops the playRound function up to five times to play a 5 round game. Each round keeps the score for each sides. The function reports a winner or loser at the end of the fifth round.
-            function game() {
-                player = 0;
-                computer = 0;
+            };
 
-                for (i = 1; i <= 5; i++) {
-                    playRound();
-                    console.log(`Player ${player} vs CPU ${computer}`);
-                };
-                if (i = 5) {
-                    if (player > computer) {
-                    console.log(`You are the winner! ${player} vs ${computer}`);
-                    } else if (computer > player) {
-                    console.log(`You lose! ${player} vs ${computer}`);
-                    } else {
-                    console.log(`It's a tie! ${player} vs ${computer}`);
-                    }
-                }
-            }
+            const rock = document.querySelector('.rock');
+            rock.addEventListener('click', (e) => {
+                playRound("Rock");
+            });
+            const paper = document.querySelector('.paper');
+            paper.addEventListener('click', (e) => {
+                playRound("Paper");
+            });
+            const scissors = document.querySelector('.scissors');
+            scissors.addEventListener('click', (e) => {
+                playRound("Scissors");
+            });
+
+            
         </script>
     </body>
 </html>
