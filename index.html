@@ -16,12 +16,14 @@
                 const choice = ["Rock", "Paper", "Scissors"]
                 return choice[Math.floor(Math.random() * choice.length)];
             }
-
+            
+            // Variables to select/create elements
             const body = document.querySelector('.body');
             const result = document.createElement('p');
             const roundEnd = document.createElement('p');
             const script = document.querySelector('.script');
 
+            // Restart button that appears at the end of the game and restarts the game from the beginning
             const restart = document.createElement('button');
             restart.textContent = "Restart";
             restart.addEventListener('click', (e) => {
@@ -37,8 +39,9 @@
                 computer = 0;
                 roundEnd.textContent = "";
                 result.textContent = "";
-            }
+            };
 
+            // Function that removes the choices at the end of the game
             const choiceWrap = document.querySelector('.choice-container');
             const buttonChoice = document.querySelectorAll('.choice')
             function removeChoice() {
@@ -49,6 +52,20 @@
             };
             body.insertBefore(result, script);
             body.insertBefore(roundEnd, script);
+
+            // Event Listeners for the buttons to play the game
+            const rock = document.querySelector('#rock');
+            rock.addEventListener('click', (e) => {
+                playRound("Rock");
+            });
+            const paper = document.querySelector('#paper');
+            paper.addEventListener('click', (e) => {
+                playRound("Paper");
+            });
+            const scissors = document.querySelector('#scissors');
+            scissors.addEventListener('click', (e) => {
+                playRound("Scissors");
+            });
 
             // A function that plays a single round of the game. The function includes two parameters that indicate the player's and CPU's input. The function returns the result of the round in a string.
             let player = 0;
@@ -106,24 +123,7 @@
                     roundEnd.textContent = `Better luck next time...`;
                     removeChoice();
                 };
-            };
-
-
-
-            const rock = document.querySelector('#rock');
-            rock.addEventListener('click', (e) => {
-                playRound("Rock");
-            });
-            const paper = document.querySelector('#paper');
-            paper.addEventListener('click', (e) => {
-                playRound("Paper");
-            });
-            const scissors = document.querySelector('#scissors');
-            scissors.addEventListener('click', (e) => {
-                playRound("Scissors");
-            });
-
-            
+            };     
         </script>
     </body>
 </html>
