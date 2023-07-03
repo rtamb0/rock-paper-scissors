@@ -7,10 +7,6 @@ function getComputerChoice() {
 // Variables to select/create elements
 const script = document.querySelector('.script');
 const body = document.querySelector('.body');
-const result = document.createElement('p');
-body.appendChild(result);
-const roundEnd = document.createElement('p');
-body.appendChild(roundEnd);
 
 // Restart button that appears at the end of the game and restarts the game from the beginning
 const restart = document.createElement('button');
@@ -40,6 +36,11 @@ function removeChoice() {
     });
     choiceWrap.appendChild(restart);
 };
+// Function that creates the result/end of round text
+const result = document.createElement('p');
+body.insertBefore(result, choiceWrap);
+const roundEnd = document.createElement('p');
+body.insertBefore(roundEnd, choiceWrap);
 
 // Event Listeners for the buttons to play the game
 const rock = document.querySelector('#rock');
