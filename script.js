@@ -41,6 +41,8 @@ const result = document.createElement('p');
 body.insertBefore(result, choiceWrap);
 const roundEnd = document.createElement('p');
 body.insertBefore(roundEnd, choiceWrap);
+result.classList.add('textResult');
+roundEnd.classList.add(`textResult`);
 
 // Event Listeners for the buttons to play the game
 const rock = document.querySelector('#rock');
@@ -59,12 +61,21 @@ scissors.addEventListener('click', (e) => {
 // A function that plays a single round of the game. The function includes two parameters that indicate the player's and CPU's input. The function returns the result of the round in a string.
 let player = 0;
 let computer = 0;
+let tie = 0;
 
 function playRound(playerSelection, 
 computerSelection = getComputerChoice()) {
+    if (playerSelection !== computerSelection) {
+        tie = 0;
+    }
     switch (playerSelection) {
         case computerSelection:
-            result.textContent = "It's a tie!";
+            tie++;
+            if (tie > 1) {
+                result.textContent = `It's a tie! x${tie}`;
+            } else {
+                result.textContent = "It's a tie!";
+            };
             break;
         case "Rock":
             if (computerSelection === "Scissors") {
